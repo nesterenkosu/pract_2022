@@ -95,7 +95,89 @@
 	}	
 	while($j<10);
 	
+	echo "<hr/>";
 	
-		
+	//Массивы php
 	
+	//объявление массива
+	$arr=Array(1,2,11,42,12,"one",2.12,true);
+	
+	/*
+		$arr=Array(
+			индекс1 => значение1,
+			индекс2 => значение2,
+			...
+			индексN => значениеN
+		);
+	*/
+	
+	$arr=Array(
+		10=>1,
+		"some_string"=>2,
+		1000=>11,
+		42,12,"one",2.12,true);
+	
+	//добавление элементов в массива
+	$arr[100]="Новый элемент массива";
+	$arr["string_index"]="Элемент со строковым индексом";
+	
+	//Просмотр массива с помощью отладочной функции
+	//print_r - информация о индексах и значениях
+	//var_dump содержит информацию о типах данных
+	echo "<pre>";
+	var_dump($arr);
+	//print_r($arr);
+	echo "</pre>";
+	
+	//Многомерные массивы
+	$users=Array(
+		Array("id"=>1,"name"=>"Василий","age"=>29),
+		Array("id"=>2,"name"=>"Андрей","age"=>25),
+		Array("id"=>3,"name"=>"Николай","age"=>40),
+	);
+	
+	//$arr = [2,10,"Test"];
+	
+	//Цикл обхода массива
+	/*
+		foreach(массив As ключ_элемента=>значение_элемента){
+		}
+	*/
+	foreach($arr As $k=>$v) {
+		echo "<b>Ключ: $k</b><br/>";
+		echo "<b>Значение: $v</b>";
+		echo "<hr/>";
+	}
+?>
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			table, td, th {
+				border-size: 1px; 
+				border-style: solid;				
+			}
+			
+			table {
+				width: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<table>
+			<tr>
+				<th>ID</th>
+				<th>Имя</th>
+				<th>Возраст</th>
+			</tr>
+			<?foreach($users As $user):?>
+			<tr>
+				<td><?=$user["id"]?></td>
+				<td><?=$user["name"]?></td>
+				<td><?=$user["age"]?></td>
+			</tr>
+			<?endforeach;?>
+		</table>
+	</body>
+</html>	
 	
